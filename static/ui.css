@@ -1,0 +1,42 @@
+body {
+    font-family: FontAwesome;
+}
+
+.sidenav {
+    height: 100px;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 40%;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 4px;
+    transition: 0.5s;
+    border-radius: 0px 5px 5px 0px;
+    border: 1px solid #73AD21;
+}
+
+.sidenav a {
+    padding: 4px 4px 4px 12px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+}
+
+th {
+    font-size: 18px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #999999;
+    display: block;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #f1f1f1;
+}

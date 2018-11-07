@@ -9,3 +9,26 @@ This has been tested with Python 3.7, but it should work with any version starti
 
 Following modules are required:
 * [tornado](https://www.tornadoweb.org/en/stable/) - The web framework used
+
+### How it works
+    ╔═══════════════╗
+    ║  Timer-based  ║
+    ║      Job      ║                           ╔════════════════╗
+    ╚═══════╤═══════╝                         ┌─╢ POST requests  ║
+            │                                 │ ║ for inserting  ║
+            │                                 │ ║ into the Queue ║
+            │  ╔════════╗      ╔═══════════╗  │ ╚════════════════╝
+            │  ║ Shared ╟◄─────╢  Tornado  ╟◄─┘ ╔════════════════╗
+            └─►╢ Queue  ╟─────►╢ WebServer ╟◄───╢  GET requests  ║ 
+               ║ Object ║      ║           ╟◄─┐ ║  for current   ║
+               ╚════════╝      ╚═══════════╝  │ ║  queue state   ║
+                                              │ ╚════════════════╝
+                                              │ ╔════════════════╗
+                                              │ ║ XMLHttpRequest ║
+                                              └─╢  for handling  ║
+                                                ║   'chunked'    ║
+                                                ║   Responses    ║
+                                                ╚════════════════╝
+                                                
+
+test
